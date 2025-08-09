@@ -11,6 +11,11 @@ export default defineConfig({
       '@assets': '/src/assets',
       '@pages': '/pages',
       '@renderer': '/renderer',
+      '@components': '/src/components',
+      '@data': '/src/data',
+      '@types': '/src/types',
+      '@lib': '/src/lib',
+      '@styles': '/src/styles',
     },
   },
 })

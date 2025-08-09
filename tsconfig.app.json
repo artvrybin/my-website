@@ -19,7 +19,13 @@
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
       "@pages/*": ["pages/*"],
-      "@renderer/*": ["renderer/*"]
+      "@renderer/*": ["renderer/*"],
+      "@data": ["src/data/index.ts"],
+      "@components/*": ["src/components/*"],
+      "@data/*": ["src/data/*"],
+      "@types/*": ["src/types/*"],
+      "@lib/*": ["src/lib/*"],
+      "@styles/*": ["src/styles/*"]
     },
 
     /* Linting */
