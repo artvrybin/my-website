@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+## SCV — сайт‑визитка на SSG (Vike + Vite + React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Коротко: это простой статический сайт. Нажимаешь «собрать» — получаешь готовые HTML‑страницы. Быстро, просто, без сервера.
 
-Currently, two official plugins are available:
+### Что нужно
+- Node.js 18+
+- pnpm 8+
+- Windows 10 (удобно запускать через Git Bash)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Как запустить
+```bash
+pnpm i      # установка зависимостей
+pnpm dev    # запуск проекта
+```
+Открой в браузере: `http://localhost:5173`
 
-## Expanding the ESLint configuration
+### Полезные команды
+- `pnpm dev` — режим разработки (автообновление при сохранении)
+- `pnpm build` — сборка проекта (HTML попадут в `dist/client/`)
+- `pnpm preview` — посмотреть собранную версию локально
+- `pnpm lint` — проверка кода (ESLint)
+- `pnpm format` — автоформатирование (Prettier)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Как добавить страницу
+1) Создай файл `pages/about/+Page.tsx`
+2) Напиши компонент (пример ниже)
+3) Открой `/about` в браузере
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Пример простейшей страницы:
+```tsx
+export default function Page() {
+  return <main style={{ padding: 24 }}>About page</main>
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Где лежат настройки
+- `renderer/+config.ts` — общий конфиг Vike (здесь включён пререндер `prerender: true`)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Удобные алиасы импортов
+- `@` → `/src`
+- `@assets` → `/src/assets`
+- `@pages` → `/pages`
+- `@renderer` → `/renderer`
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Пример:
+```ts
+import Logo from '@assets/react.svg'
+import HomePage from '@pages/index/+Page'
 ```
+
+### Пара заметок
+- Здесь нет `index.html` и `src/main.tsx` — за это отвечает Vike.
+- После сборки готовые файлы лежат в `dist/client/`.
