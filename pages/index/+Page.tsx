@@ -1,18 +1,22 @@
-import {useEffect, useRef, useState} from 'react'
+import {useEffect, useState} from 'react'
 import '@styles/site.scss'
 import {AboutSection} from '@components/sections/AboutSection'
 import {SkillsSection} from '@components/sections/SkillsSection'
 import {PortfolioSection} from '@components/sections/PortfolioSection'
 import {ExperienceSection} from '@components/sections/ExperienceSection'
 import {ContactsSection} from '@components/sections/ContactsSection'
-import {siteMeta} from '@data'
 import {Header} from '@components/layout/Header'
 import {MobileMenu} from '@components/layout/MobileMenu'
 
 export default function Page() {
     // Тема: берём сохранённое значение; на SSR используем безопасный дефолт
     // Важно: одинаковый initial state для SSR и клиента, чтобы не было hydration mismatch
-    const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+    const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+        if (typeof window === 'undefined') return 'dark'
+        const saved = localStorage.getItem('theme') as 'dark' | 'light' | null
+        if (saved) return saved
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    })
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
 
@@ -23,20 +27,10 @@ export default function Page() {
         }
     }, [])
 
-    // Инициализируем тему из localStorage после монтирования (клиент)
-    const hasLoadedTheme = useRef(false)
-    useEffect(() => {
-        const saved = localStorage.getItem('theme') as 'dark' | 'light' | null
-        setTheme(saved ?? 'light')
-        hasLoadedTheme.current = true
-    }, [])
-
-    // Синхронизируем тему с DOM и (после инициализации) с localStorage
+    // Синхронизируем тему с DOM и localStorage
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme)
-        if (hasLoadedTheme.current) {
-            localStorage.setItem('theme', theme)
-        }
+        localStorage.setItem('theme', theme)
     }, [theme])
 
     useEffect(() => {
@@ -143,7 +137,7 @@ export default function Page() {
             </main>
 
             <footer className="footer">
-                <div className="container">© {siteMeta.name}, {new Date().getFullYear()}</div>
+                <div className="container">© Артем Рыбин, {new Date().getFullYear()}</div>
             </footer>
         </>
     )

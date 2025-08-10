@@ -23,15 +23,5 @@ export type Experience = {
   summary: string
 }
 
-export type SiteMeta = {
-  name: string
-  role: string
-  city?: string
-  bio: string
-  introLines?: string[]
-  ctaText?: string
-  ctaHref?: string
-  techStack?: string[]
-}
 
 
