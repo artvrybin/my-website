@@ -1,4 +1,3 @@
-import { siteMeta } from '@data'
 import styles from './Header.module.scss'
 
 type Theme = 'dark' | 'light'
@@ -16,7 +15,7 @@ export function Header({ theme, onToggleTheme, menuOpen, onToggleMenu, onCloseMe
   return (
     <header data-header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.brand}>{siteMeta.name}</div>
+        <div className={styles.brand}>Артем Рыбин</div>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
           <a href="/#about" onClick={onCloseMenu}>Обо мне</a>

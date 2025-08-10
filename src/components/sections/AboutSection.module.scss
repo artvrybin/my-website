@@ -1,0 +1,51 @@
+@use '../../styles/breakpoints' as bp;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 24px);
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.left { text-align: left; }
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@include bp.media(tablet) {
+  .root { flex-direction: row; align-items: center; }
+  .left { flex: 0 0 60%; }
+  .right { flex: 0 0 40%; }
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.title > span {
+  display: block;
+  font-size: clamp(24px, 4.6vw, 44px);
+  line-height: 1.1;
+}
+
+.image {
+  width: 100%;
+  /* Уменьшаем пропорционально вьюпорту, но не меньше/больше заданных пределов */
+  max-width: clamp(300px, 40vw, 400px);
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+
+.meta { margin-top: 10px; }
+
+
