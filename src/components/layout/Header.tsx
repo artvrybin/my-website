@@ -12,6 +12,16 @@ export type HeaderProps = {
 }
 
 export function Header({ theme, onToggleTheme, menuOpen, onToggleMenu, onCloseMenu, scrolled }: HeaderProps) {
+  function handleMenuToggle(ev: React.MouseEvent<HTMLButtonElement>) {
+    const trigger = ev.currentTarget
+    onToggleMenu()
+    // Вернуть фокус на триггер после закрытия меню (на следующем тике)
+    if (menuOpen) {
+      setTimeout(() => {
+        try { trigger.focus() } catch {}
+      }, 0)
+    }
+  }
   return (
     <header data-header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
@@ -32,6 +42,7 @@ export function Header({ theme, onToggleTheme, menuOpen, onToggleMenu, onCloseMe
             aria-label="Переключить тему"
             aria-pressed={theme === 'light'}
             onClick={onToggleTheme}
+            title={theme === 'light' ? 'Включить тёмную тему' : 'Включить светлую тему'}
           >
             <span className={styles.body}>
               <span className={`${styles.iconWrapper} ${styles.iconWrapperDark}`}>
@@ -45,9 +56,11 @@ export function Header({ theme, onToggleTheme, menuOpen, onToggleMenu, onCloseMe
           <button
             type="button"
             className={styles.menuToggle}
-            aria-label="Открыть меню"
+            aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
             aria-expanded={menuOpen}
-            onClick={onToggleMenu}
+            aria-controls="mobile-menu"
+            aria-haspopup="dialog"
+            onClick={handleMenuToggle}
           >
             <svg
               width="20"
