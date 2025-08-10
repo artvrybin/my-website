@@ -16,8 +16,7 @@
 .scrolled {
   padding: 12px 0;
   background: var(--bg);
-  box-shadow: var(--shadow-soft);
-  border-bottom: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  box-shadow: 0 12px 28px var(--shadowDark);
 }
 
 .inner {
@@ -47,23 +46,24 @@
 
 /* Theme switch */
 .themeSwitch {
-  --padding: 2px;
-  --iconWrapperWidth: 42px;
-  --iconWrapperHeight: 28px;
-  --iconSize: 20px;
+  --padding: clamp(2px, 0.6vw, 4px);
+  --iconWrapperWidth: clamp(36px, 7vw, 54px);
+  --iconWrapperHeight: clamp(24px, 4.5vw, 38px);
+  --iconSize: clamp(18px, 3.8vw, 30px);
 
   display: inline-block;
   border: 1px solid transparent;
   border-radius: 60px;
   background: var(--card);
   color: var(--fg);
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  box-shadow: none;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-.themeSwitch:hover { border-color: var(--accent); }
+//.themeSwitch:hover { border-color: var(--accent); }
+.themeSwitch:hover { box-shadow: var(--elevation-sm); }
 .themeSwitch:focus { outline: none; }
-.themeSwitch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.themeSwitch:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; }
 
 .body {
   position: relative;
@@ -78,13 +78,18 @@
   content: '';
   position: absolute;
   top: 50%;
-  left: 2px;
+  left: var(--padding);
   width: var(--iconWrapperWidth);
   height: var(--iconWrapperHeight);
   background: var(--card);
   border-radius: 60px;
   transform: translate3d(0, -50%, 0);
-  transition: transform .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: none;
+}
+
+.themeSwitch:hover .body::after {
+  box-shadow: -2px -2px 4px var(--shadowLight), 3px 3px 6px var(--shadowDark);
 }
 
 /* Light theme position */
@@ -98,6 +103,15 @@
 .iconMoon { -webkit-mask: url('/src/assets/icons/icon-moon.svg') center / contain no-repeat; mask: url('/src/assets/icons/icon-moon.svg') center / contain no-repeat; }
 .iconWrapperDark { color: var(--fg); }
 .iconWrapperLight { color: var(--accent); }
+
+/* Make moon icon less black on light theme using a subtle gradient */
+:global(.site[data-theme='light']) .iconWrapperDark .iconMoon {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--fg) 25%, white) 0%,
+    color-mix(in oklab, var(--fg) 65%, white) 100%
+  );
+}
 
 /* Mobile header */
 .menuToggle {

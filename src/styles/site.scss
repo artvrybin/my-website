@@ -6,10 +6,17 @@
   --bg: #ECECEC;
   --fg: #191820;
   --muted: #6b7280;
-  --card: #F7F7FA;
+  --card: #ECECEC;
   --accent: #AE8BF8;
   --border: #E1E4EA;
   --headerHeight: 72px;
+  /* Neumorphic shadow palette (softer, less contrast) */
+  --shadowLight: color-mix(in oklab, var(--bg) 30%, white);
+  --shadowDark: color-mix(in oklab, var(--bg) 85%, black);
+  /* Neumorphic elevations */
+  --elevation-sm: -4px -4px 8px var(--shadowLight), 5px 5px 10px var(--shadowDark);
+  --elevation-md: -8px -8px 14px var(--shadowLight), 10px 10px 22px var(--shadowDark);
+  --elevation-lg: -12px -12px 18px var(--shadowLight), 14px 14px 28px var(--shadowDark);
 
   font-family: Rubik, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
   Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -44,6 +51,13 @@
   --card: #1A1B22;
   --accent: #AE8BF8;
   --border: #2A2F3A;
+  /* Softer highlights and shadows for dark theme */
+  --shadowLight: color-mix(in oklab, var(--bg) 88%, white);
+  --shadowDark: color-mix(in oklab, var(--bg) 70%, black);
+  /* Neumorphic elevations (dark theme) */
+  --elevation-sm: -4px -4px 8px var(--shadowLight), 5px 5px 10px var(--shadowDark);
+  --elevation-md: -8px -8px 14px var(--shadowLight), 10px 10px 22px var(--shadowDark);
+  --elevation-lg: -12px -12px 18px var(--shadowLight), 14px 14px 28px var(--shadowDark);
 }
 
 * {
@@ -79,7 +93,6 @@ main {
   width: 36px;
   height: 6px;
   border-radius: 999px;
-  background: var(--accent);
 }
 
 /* Заголовки без подчеркивания для сплит-блока */
