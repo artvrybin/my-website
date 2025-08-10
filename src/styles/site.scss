@@ -1,16 +1,14 @@
 @use './variables' as v;
 @use './breakpoints' as bp;
-/* Utilities inlined below to reduce file count */
 
 /* Base layout */
 .site {
-  /* Palette aligned with reference */
-  --bg: #ECECEC; /* var(--c-light) */
-  --fg: #191820; /* var(--c-dark) */
+  --bg: #ECECEC;
+  --fg: #191820;
   --muted: #6b7280;
-  --card: #F7F7FA; /* slightly darker card on light theme */
-  --accent: #AE8BF8; /* var(--c-accent) */
-  --border: #E1E4EA; /* stronger contrast vs bg */
+  --card: #F7F7FA;
+  --accent: #AE8BF8;
+  --border: #E1E4EA;
   --headerHeight: 72px;
 
   font-family: Rubik, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
@@ -35,17 +33,17 @@
   font-display: swap;
 }
 
-/* Light equals default palette; kept for symmetry */
-/* .site[data-theme='light'] intentionally empty */
+/* Светлая тема совпадает со значениями по умолчанию */
+/* .site[data-theme='light'] — пусто намеренно */
 
-/* Dark theme tweaks */
+/* Тёмная тема */
 .site[data-theme='dark'] {
-  --bg: #191820; /* var(--c-dark) */
-  --fg: #ECECEC; /* var(--c-light) */
+  --bg: #191820;
+  --fg: #ECECEC;
   --muted: #9aa3b2;
-  --card: #1A1B22; /* slightly lighter than bg for cards */
-  --accent: #AE8BF8; /* keep accent as in reference */
-  --border: #2A2F3A; /* subtle dark border */
+  --card: #1A1B22;
+  --accent: #AE8BF8;
+  --border: #2A2F3A;
 }
 
 * {
@@ -61,13 +59,10 @@ main {
   padding-top: var(--headerHeight);
 }
 
-/* Hero styles removed; section-specific styles are in component modules */
-
-/* Sections */
+/* Секции */
 .section {
   padding: 48px 0;
-  /* border removed for seamless sections */
-  scroll-margin-top: var(--headerHeight); /* чтобы заголовки не прятались за хедером */
+  scroll-margin-top: var(--headerHeight);
   min-height: 30rem;
 }
 
@@ -87,7 +82,7 @@ main {
   background: var(--accent);
 }
 
-/* Titles in skills split */
+/* Заголовки без подчеркивания для сплит-блока */
 .splitTitle::after {
   display: none;
 }
@@ -99,29 +94,7 @@ main {
   color: transparent;
 }
 
-/* Skills */
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.chip {
-  padding: 8px 12px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
-}
-
-/* Utilities (moved from utilities.scss) */
+/* Утилиты */
 .container {
   width: 100%;
   max-width: v.$container-max-width;
@@ -129,7 +102,9 @@ main {
   padding: 0 v.$gutter;
 }
 
-.muted { color: var(--muted); }
+.muted {
+  color: var(--muted);
+}
 
 .btn {
   border: 1px solid var(--border);
@@ -138,9 +113,14 @@ main {
   padding: 10px 14px;
   border-radius: v.$radius-md;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
 }
-.btn.primary { background: var(--accent); color: white; border-color: color-mix(in oklab, var(--accent) 70%, black); }
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+  border-color: color-mix(in oklab, var(--accent) 70%, black);
+}
 
 .card {
   grid-column: span 12;
@@ -150,27 +130,12 @@ main {
   padding: 16px;
   transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
 }
-.card:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--accent) 40%, var(--border)); }
 
-.dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 6px color-mix(in oklab, var(--accent) 40%, transparent); }
-
-/* About section moved to AboutSection.module.scss */
-
-/* Lists like in reference */
-.list {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-  line-height: 1.7;
+.card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
 }
 
-.list li {
-  margin-bottom: 4px;
-}
-
-/* Skills section moved to SkillsSection.module.scss */
-
-/* dot is kept for global utility usages; duplicated inside modules where needed */
 .dot {
   width: 8px;
   height: 8px;
@@ -179,26 +144,16 @@ main {
   box-shadow: 0 0 6px color-mix(in oklab, var(--accent) 40%, transparent);
 }
 
-/* Portfolio section moved to PortfolioSection.module.scss */
-
-/* Contacts section moved to ContactsSection.module.scss */
-
-@include bp.media(tablet) {
-  .card.col-6 {
-    grid-column: span 6;
-  }
-  .card.col-4 {
-    grid-column: span 4;
-  }
+/* Общая точка (используется в разных компонентах) */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 6px color-mix(in oklab, var(--accent) 40%, transparent);
 }
 
-@include bp.media(desktop) {
-  .card.col-3 {
-    grid-column: span 3;
-  }
-}
-
-/* Footer */
+/* Футер */
 .footer {
   padding: 32px 0 56px;
   text-align: center;
@@ -212,50 +167,16 @@ main {
   transition: none; /* отключаем переходы, чтобы убрать мигание при компенсации скроллбара */
 }
 
-/* Skills tiles */
-.skillCard {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  align-items: center;
-  gap: 12px;
-}
 
-.skillIcon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  background: color-mix(in oklab, var(--accent) 16%, var(--card));
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  color: white;
-  border: 1px solid color-mix(in oklab, var(--accent) 40%, var(--border));
-}
-
-.skillLabel {
-  font-weight: 600;
-}
-
-/* Smooth anchors */
+/* Плавная прокрутка якорей */
 html {
   scroll-behavior: smooth;
 }
 
-/* Theme transition */
+/* Плавные переходы темы */
 * {
   transition: background-color .25s ease, color .25s ease, border-color .25s ease;
 }
 
-/* Header round icon buttons */
-.iconBtn {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  display: inline-grid;
-  place-items: center;
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: v.$shadow-soft;
-}
 
 
