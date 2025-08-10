@@ -92,7 +92,7 @@
   transform: translate3d(calc(var(--iconWrapperWidth) + var(--padding)), -50%, 0);
 }
 
-.iconWrapper { display: inline-grid; place-items: center; width: var(--iconWrapperWidth); height: var(--iconWrapperHeight); position: relative; z-index: 1; }
+.iconWrapper { display: inline-flex; align-items: center; justify-content: center; width: var(--iconWrapperWidth); height: var(--iconWrapperHeight); position: relative; z-index: 1; }
 .icon { display: inline-block; width: var(--iconSize); height: var(--iconSize); background: currentColor; }
 .iconSun { -webkit-mask: url('/src/assets/icons/icon-sun.svg') center / contain no-repeat; mask: url('/src/assets/icons/icon-sun.svg') center / contain no-repeat; }
 .iconMoon { -webkit-mask: url('/src/assets/icons/icon-moon.svg') center / contain no-repeat; mask: url('/src/assets/icons/icon-moon.svg') center / contain no-repeat; }

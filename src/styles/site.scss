@@ -123,7 +123,6 @@ main {
 }
 
 .card {
-  grid-column: span 12;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: v.$radius-lg;
