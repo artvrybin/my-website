@@ -81,7 +81,7 @@ main {
 }
 
 .section h2 {
-  margin: 0 0 12px;
+  margin: 0 0 28px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -188,6 +188,21 @@ html {
 /* Плавные переходы темы */
 * {
   transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* Глобальная видимая рамка фокуса */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Уважение prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 
