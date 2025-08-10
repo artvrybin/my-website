@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+$breakpoints: (
+  mobile: 0,
+  tablet: 800px,
+  desktop: 1100px
+);
+
+@mixin media($from) {
+  $min: map.get($breakpoints, $from);
+  @if $min == null {
+    @error 'Unknown breakpoint: #{$from}';
+  }
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+
