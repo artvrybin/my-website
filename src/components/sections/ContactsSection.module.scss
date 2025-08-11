@@ -53,3 +53,20 @@
 }
 
 .footer { position: absolute; right: 0; bottom: 0; color: var(--muted); font-size: 13px; text-align: right; }
+
+/* Mask-based icon so we can control color by theme */
+.icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  background: var(--fg);
+}
+
+:root[data-theme='light'] .icon {
+  background: var(--fg);
+}
+
+/* per-kind masks */
+.iconEmail { -webkit-mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat; mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat; }
+.iconTelegram { -webkit-mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat; mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat; }
+.iconGithub { -webkit-mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat; mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat; }

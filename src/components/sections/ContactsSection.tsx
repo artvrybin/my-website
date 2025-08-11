@@ -34,7 +34,7 @@ export function ContactsSection() {
           left={
             <div>
               <p className={styles.lead}>
-                Если у Вас есть <span className={styles.leadGradient}>предложение — свяжитесь</span> со мной.
+                Если у Вас есть <span className={styles.leadGradient}>предложение — </span><span className={styles.leadGradient}> свяжитесь</span> со мной.
               </p>
               <p className="muted">
                 Я на связи пн–пт с 8:00 до 20:00 (GMT).
@@ -52,7 +52,9 @@ export function ContactsSection() {
                   return (
                     <li key={contact.url} className={styles.item}>
                       <TileWrapper href={contact.url} aria-label={contact.label} target={target} rel={rel} onClick={onClick}>
-                        <img src={contact.icon} alt={contact.label} width={18} height={18} />
+                        {contact.kind === 'email' && <span className={`${styles.icon} ${styles.iconEmail}`} aria-hidden="true" />}
+                        {contact.kind === 'telegram' && <span className={`${styles.icon} ${styles.iconTelegram}`} aria-hidden="true" />}
+                        {contact.kind === 'github' && <span className={`${styles.icon} ${styles.iconGithub}`} aria-hidden="true" />}
                       </TileWrapper>
                     </li>
 
