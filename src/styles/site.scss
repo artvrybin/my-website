@@ -149,17 +149,10 @@ main {
 }
 
 .dot {
+  display: inline-block;
   width: 8px;
   height: 8px;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 6px color-mix(in oklab, var(--accent) 40%, transparent);
-}
-
-/* Общая точка (используется в разных компонентах) */
-.dot {
-  width: 8px;
-  height: 8px;
+  aspect-ratio: 1 / 1;
   border-radius: 999px;
   background: var(--accent);
   box-shadow: 0 0 6px color-mix(in oklab, var(--accent) 40%, transparent);

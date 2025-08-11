@@ -11,12 +11,8 @@ import {MobileMenu} from '@components/layout/MobileMenu'
 export default function Page() {
     // Тема: берём сохранённое значение; на SSR используем безопасный дефолт
     // Важно: одинаковый initial state для SSR и клиента, чтобы не было hydration mismatch
-    const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-        if (typeof window === 'undefined') return 'dark'
-        const saved = localStorage.getItem('theme') as 'dark' | 'light' | null
-        if (saved) return saved
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    })
+    // Стабильный initial state для SSR и первого клиента
+    const [theme, setTheme] = useState<'dark' | 'light'>('dark')
     const [menuOpen, setMenuOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
 
@@ -27,7 +23,15 @@ export default function Page() {
         }
     }, [])
 
-    // Синхронизируем тему с DOM и localStorage
+    // Инициализируем тему после монтирования по saved/prefers-color-scheme,
+    // затем синхронизируем с DOM и localStorage
+    useEffect(() => {
+        const saved = localStorage.getItem('theme') as 'dark' | 'light' | null
+        const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        setTheme(saved ?? preferred)
+    }, [])
+
+    // Синхронизация темы с DOM и localStorage
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme)
         localStorage.setItem('theme', theme)
@@ -136,9 +140,7 @@ export default function Page() {
                 <ContactsSection/>
             </main>
 
-            <footer className="footer">
-                <div className="container">© Артем Рыбин, {new Date().getFullYear()}</div>
-            </footer>
+            {/* Footer removed: local footer is now inside ContactsSection */}
         </>
     )
 }

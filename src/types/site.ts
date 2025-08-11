@@ -4,6 +4,9 @@ export type Contact = {
   label: string
   url: string
   kind: ContactKind
+  icon: string
+  target?: string
+  rel?: string
 }
 
 export type Project = {
