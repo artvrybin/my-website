@@ -1,7 +1,7 @@
 @use './variables' as v;
 @use './breakpoints' as bp;
 
-/* Base layout */
+/* Базовая раскладка */
 .site {
   --bg: #ECECEC;
   --fg: #191820;
@@ -10,10 +10,15 @@
   --accent: #AE8BF8;
   --border: #E1E4EA;
   --headerHeight: 72px;
-  /* Neumorphic shadow palette (softer, less contrast) */
+  /* Набор теней в стиле «неоморфизм» (мягче, меньше контраста) */
   --shadowLight: color-mix(in oklab, var(--bg) 30%, white);
   --shadowDark: color-mix(in oklab, var(--bg) 85%, black);
-  /* Neumorphic elevations */
+  /* Градиенты/оверлеи и цвета тени */
+  --panelGradientStart: color-mix(in oklab, var(--bg) 20%, white);
+  --panelGradientEnd: color-mix(in oklab, var(--bg) 40%, white);
+  --scrim-70: color-mix(in oklab, black 70%, transparent);
+  --shadowBackdrop: color-mix(in oklab, black 18%, transparent);
+  /* Уровни «поднятия» для теней */
   --elevation-sm: -4px -4px 8px var(--shadowLight), 5px 5px 10px var(--shadowDark);
   --elevation-md: -8px -8px 14px var(--shadowLight), 10px 10px 22px var(--shadowDark);
   --elevation-lg: -12px -12px 18px var(--shadowLight), 14px 14px 28px var(--shadowDark);
@@ -24,9 +29,14 @@
   color: var(--fg);
 }
 
+/* Подсказка движку для системной тёмной/светлой темы */
+:root {
+  color-scheme: light dark;
+}
+
 @font-face {
   font-family: "Rubik";
-  src: url('/src/assets/fonts/Rubik-Light.woff2') format('woff2'), url('/src/assets/fonts/Rubik-Light.woff') format('woff');
+  src: url('../assets/fonts/Rubik-Light.woff2') format('woff2'), url('../assets/fonts/Rubik-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -34,14 +44,13 @@
 
 @font-face {
   font-family: "Rubik";
-  src: url('/src/assets/fonts/Rubik-Regular.woff2') format('woff2'), url('/src/assets/fonts/Rubik-Regular.woff') format('woff');
+  src: url('../assets/fonts/Rubik-Regular.woff2') format('woff2'), url('../assets/fonts/Rubik-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* Светлая тема совпадает со значениями по умолчанию */
-/* .site[data-theme='light'] — пусто намеренно */
+/* Светлая тема совпадает со значениями по умолчанию (ничего не переопределяем) */
 
 /* Тёмная тема */
 .site[data-theme='dark'] {
@@ -51,10 +60,13 @@
   --card: #1A1B22;
   --accent: #AE8BF8;
   --border: #2A2F3A;
-  /* Softer highlights and shadows for dark theme */
+  /* Мягче блики и тени для тёмной темы */
   --shadowLight: color-mix(in oklab, var(--bg) 88%, white);
   --shadowDark: color-mix(in oklab, var(--bg) 70%, black);
-  /* Neumorphic elevations (dark theme) */
+  /* Подстройка панельных градиентов под тёмную тему */
+  --panelGradientStart: color-mix(in oklab, var(--bg) 80%, white);
+  --panelGradientEnd: color-mix(in oklab, var(--bg) 90%, white);
+  /* Уровни «поднятия» (тёмная тема) */
   --elevation-sm: -4px -4px 8px var(--shadowLight), 5px 5px 10px var(--shadowDark);
   --elevation-md: -8px -8px 14px var(--shadowLight), 10px 10px 22px var(--shadowDark);
   --elevation-lg: -12px -12px 18px var(--shadowLight), 14px 14px 28px var(--shadowDark);
@@ -68,7 +80,7 @@ body, .site {
   margin: 0;
 }
 
-/* Отступ под fixed-хедер */
+/* Отступ под фиксированный хедер */
 main {
   padding-top: var(--headerHeight);
 }
@@ -95,7 +107,7 @@ main {
   border-radius: 999px;
 }
 
-/* Заголовки без подчеркивания для сплит-блока */
+/* Заголовки без подчёркивания для сплит-блока */
 .splitTitle::after {
   display: none;
 }
@@ -126,7 +138,7 @@ main {
   padding: 10px 14px;
   border-radius: v.$radius-md;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+  box-shadow: 0 2px 8px var(--shadowBackdrop);
 }
 
 .btn.primary {
@@ -169,27 +181,45 @@ main {
 .is-mobile-menu-open .header,
 .is-mobile-menu-open [data-mobile-menu] {
   padding-right: var(--scrollbarWidth, 0px);
-  transition: none; /* отключаем переходы, чтобы убрать мигание при компенсации скроллбара */
+  transition: none; /* убираем мигание при компенсации скроллбара */
 }
 
 
-/* Плавная прокрутка якорей */
+/* Плавная прокрутка к якорям */
 html {
   scroll-behavior: smooth;
 }
 
-/* Плавные переходы темы */
-* {
+/* Плавные переходы темы — точечно, без глобального * */
+.site, .card, .btn, .header, [data-mobile-menu] {
   transition: background-color .25s ease, color .25s ease, border-color .25s ease;
 }
 
-/* Глобальная видимая рамка фокуса */
+/* Видимая рамка фокуса глобально */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Уважение prefers-reduced-motion */
+/* Skip link (ссылка для пропуска навигации) */
+.skipLink {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: var(--elevation-sm);
+}
+.skipLink:focus {
+  left: 12px;
+  top: 12px;
+  z-index: 1000;
+}
+
+/* Поддержка prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;

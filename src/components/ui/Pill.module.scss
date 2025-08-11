@@ -7,7 +7,7 @@
   gap: 18px;
   background: var(--card);
   border-radius: 16px;
-  /* Mobile padding for skills pills */
+  /* Мобильные отступы для «пилюль» навыков */
   padding: 15px;
   box-shadow: var(--elevation-sm);
   transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
@@ -18,7 +18,7 @@
 
 @include bp.media(tablet) {
   .root {
-    /* Tablet and up: revert to larger spacing */
+  /* Планшет и выше: возвращаем большие отступы */
     padding: 22px 24px;
   }
 }

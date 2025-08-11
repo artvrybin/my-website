@@ -5,8 +5,39 @@ $radius-sm: 8px;
 $radius-md: 30px;
 $radius-lg: 40px;
 
-/* Shadows */
-$shadow-inset: inset -22px -14px 14px 2px rgba(255, 255, 255, 0.015), inset 8px 4px 20px 12px rgba(0, 0, 0, 0.8);
-$shadow-soft: -4px -4px 12px rgba(255, 255, 255, 0.05), 4px 4px 20px rgba(0, 0, 0, 0.25);
+/* Брендовые цвета (для масок-иконок и бейджей) */
+$brand-colors: (
+  next: #000000,
+  redux: #764ABC,
+  rtkq: #764ABC,
+  radix: #000000,
+  shadcn: #000000,
+  storybook: #FF4785,
+  pixso: #8A2BE2
+);
 
+/* Классы -> брендовые цвета (с учётом нужного регистра в именах классов) */
+$brand-class-colors: (
+  'brandNext': #000000,
+  'brandRedux': #764ABC,
+  'brandRTKQ': #764ABC,
+  'brandRadix': #000000,
+  'brandShadcn': #000000,
+  'brandStorybook': #FF4785,
+  'brandPixso': #8A2BE2
+);
+
+/* Общие миксины */
+@mixin sectionTitle {
+  margin: 0 0 18px;
+  font-size: 1.9em;
+}
+
+@mixin iconSquare18 {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
 

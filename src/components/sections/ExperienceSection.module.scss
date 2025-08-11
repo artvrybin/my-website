@@ -1,9 +1,6 @@
 @use '../../styles/variables' as v;
 
-.title {
-  margin: 0 0 18px;
-  font-size: 1.9em;
-}
+.title { @include v.sectionTitle; }
 
 .companyLine {
   display: flex;
@@ -22,17 +19,17 @@
   color: var(--accent);
 }
 
-/* Common spacing for main blocks */
+/* Общие отступы для основных блоков */
 .block {
   margin-bottom: 20px;
 }
 
-/* Для плитки с классом .role красим текст внутри, а не фон враппера */
+/* Для плитки с классом .role — красим текст внутри, а не фон враппера */
 .role span {
   color: var(--accent);
 }
 
-/* Skills/stack tiles */
+/* Плитки навыков/стека */
 .tiles {
   display: flex;
   flex-wrap: wrap;
@@ -40,24 +37,12 @@
   margin-top: 12px;
 }
 
-.tileImg {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  margin-right: 8px;
-  vertical-align: middle;
-}
+.tileImg { @include v.iconSquare18; }
 
-.tileIcon {
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  margin-right: 8px;
-  vertical-align: middle;
-}
+.tileIcon { @include v.iconSquare18; }
 
 
-/* legacy mask-based icon helpers (kept for reference; now using <img>) */
+/* Устаревшие помощники под mask-иконки (оставлены для справки; сейчас используем <img>) */
 .icon {
   width: 18px;
   height: 18px;
@@ -67,105 +52,81 @@
 }
 
 .react {
-  -webkit-mask: url('/src/assets/icons/icon-react.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-react.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-react.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-react.svg') center / contain no-repeat;
 }
 
 .ts {
-  -webkit-mask: url('/src/assets/icons/icon-ts.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-ts.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-ts.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-ts.svg') center / contain no-repeat;
 }
 
 .js {
-  -webkit-mask: url('/src/assets/icons/icon-js.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-js.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-js.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-js.svg') center / contain no-repeat;
 }
 
 .next {
-  -webkit-mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-idea.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-idea.svg') center / contain no-repeat;
 }
 
 .redux {
-  -webkit-mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-redux.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-redux.svg') center / contain no-repeat;
 }
 
 .rtkq {
-  -webkit-mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-redux.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-redux.svg') center / contain no-repeat;
 }
 
 .scss {
-  -webkit-mask: url('/src/assets/images/icons/scss.svg') center / contain no-repeat;
-  mask: url('/src/assets/images/icons/scss.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/images/icons/scss.svg') center / contain no-repeat;
+  mask: url('../../assets/images/icons/scss.svg') center / contain no-repeat;
 }
 
 .html {
-  -webkit-mask: url('/src/assets/icons/icon-html.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-html.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-html.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-html.svg') center / contain no-repeat;
 }
 
 .css {
-  -webkit-mask: url('/src/assets/icons/icon-css.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-css.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-css.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-css.svg') center / contain no-repeat;
 }
 
 .figma {
-  -webkit-mask: url('/src/assets/images/icons/figma.svg') center / contain no-repeat;
-  mask: url('/src/assets/images/icons/figma.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/images/icons/figma.svg') center / contain no-repeat;
+  mask: url('../../assets/images/icons/figma.svg') center / contain no-repeat;
 }
 
 .radix {
-  -webkit-mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-gear.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-gear.svg') center / contain no-repeat;
 }
 
 .shadcn {
-  -webkit-mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-gear.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-gear.svg') center / contain no-repeat;
 }
 
 .storybook {
-  -webkit-mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-idea.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-idea.svg') center / contain no-repeat;
 }
 
 .pixso {
-  -webkit-mask: url('/src/assets/icons/icon-attachment.svg') center / contain no-repeat;
-  mask: url('/src/assets/icons/icon-attachment.svg') center / contain no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-attachment.svg') center / contain no-repeat;
+  mask: url('../../assets/icons/icon-attachment.svg') center / contain no-repeat;
 }
 
-/* Brand colors for masked icons (solid-color) */
-.brandNext {
-  background: #000000;
+/* Брендовые цвета для mask-иконок (заливка) */
+@each $className, $color in v.$brand-class-colors {
+  .#{$className} { background: $color; }
 }
 
-.brandRedux {
-  background: #764ABC;
-}
-
-.brandRTKQ {
-  background: #764ABC;
-}
-
-.brandRadix {
-  background: #000000;
-}
-
-.brandShadcn {
-  background: #000000;
-}
-
-.brandStorybook {
-  background: #FF4785;
-}
-
-.brandPixso {
-  background: #8A2BE2;
-}
-
-/* Theme-aware adjustments to keep icons visible on dark background */
+/* Настройка видимости иконок на тёмной теме */
 .themeAwareDarkInvert {
   filter: none;
 }

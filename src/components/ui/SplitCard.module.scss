@@ -4,7 +4,7 @@
 .root {
   background: var(--card);
   border-radius: v.$radius-lg;
-  /* Mobile padding */
+  /* Мобильные отступы */
   padding: 20px;
   box-shadow: var(--elevation-sm);
   transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
@@ -32,12 +32,12 @@
   position: relative;
   width: 100%;
   aspect-ratio: var(--split-aspect, 399 / 320);
-  background: linear-gradient(180deg, #f3f4f7, #eceff5);
+  background: linear-gradient(180deg, var(--panelGradientStart), var(--panelGradientEnd));
 }
 
 
 @include bp.media(tablet) {
-  /* Tablet and up */
+  /* Планшет и выше */
   .root {
     padding: 40px;
   }

@@ -5,13 +5,34 @@ type MobileMenuProps = {
 }
 
 import styles from './MobileMenu.module.scss'
+import { useEffect, useRef } from 'react'
 
 export function MobileMenu({ open, onNavigate, onClose }: MobileMenuProps) {
+  const rootRef = useRef<HTMLDivElement | null>(null)
+  const prevFocusRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    if (!open) return
+    prevFocusRef.current = (document.activeElement as HTMLElement) ?? null
+    // Автофокус на первый доступный элемент
+    const root = rootRef.current
+    if (!root) return
+    const focusables = root.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    const first = focusables[0]
+    if (first) setTimeout(() => first.focus(), 0)
+    return () => {
+      // Возвращаем фокус на предыдущий триггер
+      const prev = prevFocusRef.current
+      if (prev) setTimeout(() => prev.focus(), 0)
+    }
+  }, [open])
+
   if (!open) return null
   return (
     <div
       id="mobile-menu"
       data-mobile-menu
+      ref={rootRef}
       className={`${styles.root} ${open ? styles.open : ''}`}
       role="dialog"
       aria-modal="true"

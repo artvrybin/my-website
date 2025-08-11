@@ -4,8 +4,8 @@ import styles from './TileWrapper.module.scss'
 type TileWrapperProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode
   variant?: 'circle' | 'pill'
-  circleSize?: number // px, e.g. 64 -> 64x64 circle
-  pillHeight?: number // px, e.g. 40 -> auto-width x 40
+  circleSize?: number // размер круга в px (64 -> 64x64)
+  pillHeight?: number // высота «пилюли» в px (40 -> автоширина x 40)
 }
 
 export function TileWrapper({ children, className, variant = 'circle', circleSize = 64, pillHeight = 40, style, ...props }: TileWrapperProps) {

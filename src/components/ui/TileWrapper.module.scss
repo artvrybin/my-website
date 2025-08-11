@@ -9,7 +9,7 @@
   background: var(--tile-bg, var(--card));
   text-decoration: none;
   color: var(--tile-fg, var(--fg));
-  /* inner bevel-like shadows: dark top/left, light right/bottom */
+  /* Внутренние тени в стиле лёгкой фаски: тёмные сверху/слева, светлые снизу/справа */
   box-shadow: inset 0 4px 2px var(--shadowDark),
   inset 4px 0 2px var(--shadowDark),
   inset 0 -4px 2px var(--shadowLight),
@@ -24,6 +24,6 @@
   --tile-variant: pill;
 }
 
-/* content-specific icon styles are intentionally omitted here */
+/* Стили для конкретных иконок намеренно не задаются здесь */
 
 

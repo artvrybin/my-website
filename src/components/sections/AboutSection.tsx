@@ -18,9 +18,12 @@ export function AboutSection() {
           <img
             className={styles.image}
             src={heroImage}
-            alt="Фото автора сайта"
+            alt="Портрет Артёма Рыбина"
+            width={400}
+            height={400}
             loading="eager"
             decoding="async"
+            fetchPriority="high"
           />
         </div>
       </div>

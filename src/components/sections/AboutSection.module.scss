@@ -1,4 +1,5 @@
 @use '../../styles/breakpoints' as bp;
+@use '../../styles/variables' as v;
 
 .root {
   display: flex;
@@ -23,12 +24,7 @@
   .right { flex: 0 0 40%; }
 }
 
-.title {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 0;
-}
+.title { @include v.sectionTitle; display: flex; flex-direction: column; gap: 4px; }
 
 .title > span {
   display: block;
@@ -38,12 +34,12 @@
 
 .image {
   width: 100%;
-  /* Уменьшаем пропорционально вьюпорту, но не меньше/больше заданных пределов */
+  /* Масштабируем относительно вьюпорта в заданных пределах */
   max-width: clamp(300px, 40vw, 400px);
   height: auto;
   border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  box-shadow: 0 12px 40px var(--shadowBackdrop);
 }
 
 .meta { margin-top: 10px; }

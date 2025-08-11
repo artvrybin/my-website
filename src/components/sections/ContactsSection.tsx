@@ -15,7 +15,7 @@ export function ContactsSection() {
         setEmailCopied(true)
       }
     } catch {}
-    // allow default navigation to mailto:
+    // Разрешаем переход по mailto: по умолчанию
   }, [])
 
   useEffect(() => {

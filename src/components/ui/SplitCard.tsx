@@ -6,8 +6,8 @@ type BaseProps = {
   children?: ReactNode
   className?: string
   frameLeft?: boolean
-  leftWidth?: number // px
-  aspect?: string // CSS aspect-ratio value, e.g. '399 / 320'
+  leftWidth?: number // ширина левой колонки в px
+  aspect?: string // значение CSS aspect-ratio, например '399 / 320'
 }
 
 export type SplitCardProps<T extends ElementType> = BaseProps & {

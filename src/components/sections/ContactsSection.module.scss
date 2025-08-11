@@ -1,4 +1,5 @@
 @use '../../styles/breakpoints' as bp;
+@use '../../styles/variables' as v;
 
 .compactSection {
   min-height: auto;
@@ -10,10 +11,7 @@
   }
 }
 
-.title {
-  margin: 0 0 18px;
-  font-size: 1.9em;
-}
+.title { @include v.sectionTitle; }
 
 .forceRow :global(.content) {
   flex-direction: row;
@@ -43,7 +41,7 @@
 }
 
 .leadGradient {
-  background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--accent) 35%, #fff));
+  background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--accent) 35%, white));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -68,7 +66,7 @@
   justify-content: center;
 }
 
-/* Mobile: элементы в одну строку с горизонтальным скроллом */
+/* Мобильно: элементы в одну строку с горизонтальным скроллом */
 .list {
   display: flex;
   gap: 12px;
@@ -85,7 +83,7 @@
   justify-content: center;
 }
 
-/* Tablet+: раскладываем сеткой с переносами */
+/* Планшет и выше: раскладываем сеткой с переносами */
 @include bp.media(tablet) {
   .list {
     flex-wrap: wrap;
@@ -97,7 +95,7 @@
   }
 }
 
-/* Explicit size and white fill for img-based icons */
+/* Явный размер и белая заливка для иконок-изображений */
 .list img {
   width: 40px;
   height: 40px;
@@ -127,7 +125,7 @@
   text-align: right;
 }
 
-/* Mask-based icon so we can control color by theme */
+/* Иконка через mask, чтобы управлять цветом темой */
 .icon {
   width: 40px;
   height: 40px;
@@ -139,18 +137,18 @@
   background: var(--fg);
 }
 
-/* per-kind masks */
+/* Маски по типам */
 .iconEmail {
-  -webkit-mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat;
-  mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-email.svg') center / 70% no-repeat;
+  mask: url('../../assets/icons/icon-email.svg') center / 70% no-repeat;
 }
 
 .iconTelegram {
-  -webkit-mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat;
-  mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-telegram.svg') center / 70% no-repeat;
+  mask: url('../../assets/icons/icon-telegram.svg') center / 70% no-repeat;
 }
 
 .iconGithub {
-  -webkit-mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat;
-  mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat;
+  -webkit-mask: url('../../assets/icons/icon-github.svg') center / 70% no-repeat;
+  mask: url('../../assets/icons/icon-github.svg') center / 70% no-repeat;
 }

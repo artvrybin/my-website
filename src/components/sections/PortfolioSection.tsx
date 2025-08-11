@@ -2,10 +2,7 @@ import styles from './PortfolioSection.module.scss'
 import { useEffect, useState } from 'react'
 import { SplitCard, SplitCardAspect } from '../ui/SplitCard'
 import { TileWrapper } from '../ui/TileWrapper'
-
-// Images
 import heroImage from '../../assets/images/hero-image.png'
-// Tech stack icons
 import iconVite from '../../assets/images/icons/vite.svg'
 import iconTS from '../../assets/images/icons/typescript.svg'
 import iconReact from '../../assets/images/icons/react.svg'
@@ -17,8 +14,6 @@ import iconFormik from '../../assets/images/icons/formik.svg'
 import iconYup from '../../assets/images/icons/yup.svg'
 import iconPostCSS from '../../assets/images/icons/postcss.svg'
 import iconVitest from '../../assets/images/icons/vitest.svg'
-
-// Project-specific styles now live next to the section for clarity
 
 export function PortfolioSection() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
@@ -67,10 +62,11 @@ export function PortfolioSection() {
                   <img
                     className={styles.image}
                     src={heroImage}
-                    alt=""
+                    alt="Скриншот проекта"
                     width={390}
                     height={320}
                     loading="lazy"
+                    decoding="async"
                   />
                 </button>
               </SplitCardAspect>
@@ -131,7 +127,7 @@ export function PortfolioSection() {
             onClick={closeLightbox}
           >
             <div className={styles.lbInner} onClick={e => e.stopPropagation()}>
-              <img className={styles.lbImg} src={lightboxSrc ?? ''} alt="" />
+              <img className={styles.lbImg} src={lightboxSrc ?? ''} alt={lightboxCaption ?? 'Изображение'} />
               {lightboxCaption && (
                 <div className={styles.lbCaption}>{lightboxCaption}</div>
               )}

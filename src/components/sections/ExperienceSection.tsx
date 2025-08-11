@@ -1,6 +1,19 @@
 import { SectionCard } from '@components/ui/SectionCard'
 import styles from '@components/sections/ExperienceSection.module.scss'
 import { TileWrapper } from '@components/ui/TileWrapper.tsx'
+// Импортируем ассеты через алиасы, а не абсолютные /src пути — устойчиво к сборке Vite
+import iconNext from '@/assets/icons/icon-nextjs.svg'
+import iconReact from '@/assets/images/icons/react.svg'
+import iconTS from '@/assets/images/icons/typescript.svg'
+import iconJS from '@/assets/images/icons/javascript.svg'
+import iconRTK from '@/assets/images/icons/redux-toolkit.svg'
+import iconRedux from '@/assets/images/icons/redux.svg'
+import iconGear from '@/assets/icons/icon-gear.svg'
+import iconScss from '@/assets/images/icons/scss.svg'
+import iconStorybook from '@/assets/icons/image-storybook.svg'
+import iconHtml from '@/assets/images/icons/html.svg'
+import iconCss from '@/assets/images/icons/css.svg'
+import iconFigma from '@/assets/images/icons/figma.svg'
 
 export function ExperienceSection() {
   return (
@@ -27,107 +40,55 @@ export function ExperienceSection() {
 
           <div className={styles.tiles}>
             <TileWrapper variant={'pill'}>
-              <img
-                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
-                src={'/src/assets/icons/icon-nextjs.svg'}
-                alt="Next.js"
-              />
+              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconNext} alt="Next.js" />
               Next.js
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/react.svg'}
-                alt="React"
-              />
+              <img className={styles.tileImg} src={iconReact} alt="React" />
               React
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/typescript.svg'}
-                alt="TypeScript"
-              />
+              <img className={styles.tileImg} src={iconTS} alt="TypeScript" />
               TypeScript
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/javascript.svg'}
-                alt="JavaScript"
-              />
+              <img className={styles.tileImg} src={iconJS} alt="JavaScript" />
               JavaScript
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/redux-toolkit.svg'}
-                alt="Redux Toolkit"
-              />
+              <img className={styles.tileImg} src={iconRTK} alt="Redux Toolkit" />
               Redux Toolkit
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/redux.svg'}
-                alt="RTK Query"
-              />
+              <img className={styles.tileImg} src={iconRedux} alt="RTK Query" />
               RTK Query
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
-                src={'/src/assets/icons/icon-gear.svg'}
-                alt="Radix UI"
-              />
+              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconGear} alt="Radix UI" />
               Radix UI
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
-                src={'/src/assets/icons/icon-gear.svg'}
-                alt="shadcn/ui"
-              />
+              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconGear} alt="shadcn/ui" />
               shadcn/ui
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/scss.svg'}
-                alt="SCSS"
-              />
+              <img className={styles.tileImg} src={iconScss} alt="SCSS" />
               SCSS
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
-                src={'/src/assets/icons/image-storybook.svg'}
-                alt="Storybook"
-              />
+              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconStorybook} alt="Storybook" />
               Storybook
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/html.svg'}
-                alt="HTML5"
-              />
+              <img className={styles.tileImg} src={iconHtml} alt="HTML5" />
               HTML5
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/css.svg'}
-                alt="CSS3"
-              />
+              <img className={styles.tileImg} src={iconCss} alt="CSS3" />
               CSS3
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img
-                className={styles.tileImg}
-                src={'/src/assets/images/icons/figma.svg'}
-                alt="Figma"
-              />
+              <img className={styles.tileImg} src={iconFigma} alt="Figma" />
               Figma
             </TileWrapper>
             <TileWrapper variant={'pill'}>
