@@ -1,0 +1,33 @@
+@use '../../styles/variables' as v;
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: var(--elevation-sm);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  position: relative;
+  isolation: isolate;
+
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 6px color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+.text {
+  color: var(--fg);
+  font-size: clamp(20px, 1.9vw, 22px);
+  line-height: 1.45;
+}
+
+
