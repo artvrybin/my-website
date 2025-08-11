@@ -1,0 +1,41 @@
+@use '../../styles/variables' as v;
+@use '../../styles/breakpoints' as bp;
+
+.root {
+  background: var(--card);
+  border-radius: v.$radius-lg;
+  padding: 40px;
+  box-shadow: var(--elevation-sm);
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.content { display: flex; flex-direction: column; gap: 12px; }
+
+.left {
+  position: relative;
+}
+
+.leftFrame {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: v.$radius-md;
+  overflow: hidden;
+  box-shadow: var(--elevation-sm);
+}
+
+.leftAspect {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--split-aspect, 399 / 320);
+  background: linear-gradient(180deg, #f3f4f7, #eceff5);
+}
+
+
+
+@include bp.media(tablet) {
+  .content { flex-direction: row; gap: 16px; }
+  .left { flex: 0 0 var(--split-left-width, 399px); max-width: var(--split-left-width, 399px); }
+  .right { flex: 1 1 auto; min-width: 0; }
+}
+
+
