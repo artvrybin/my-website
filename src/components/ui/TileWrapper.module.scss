@@ -6,20 +6,23 @@
   height: var(--tile-h, 42px);
   padding: var(--tile-p, 0);
   border-radius: var(--tile-radius, 999px);
-  background: var(--card);
+  background: var(--tile-bg, var(--card));
   text-decoration: none;
-  color: var(--fg);
+  color: var(--tile-fg, var(--fg));
   /* inner bevel-like shadows: dark top/left, light right/bottom */
-  box-shadow:
-    inset 0 4px 2px var(--shadowDark),
-    inset 4px 0 2px var(--shadowDark),
-    inset 0 -4px 2px var(--shadowLight),
-    inset -4px 0 2px var(--shadowLight);
+  box-shadow: inset 0 4px 2px var(--shadowDark),
+  inset 4px 0 2px var(--shadowDark),
+  inset 0 -4px 2px var(--shadowLight),
+  inset -4px 0 2px var(--shadowLight);
 }
 
-.circle { --tile-variant: circle; }
+.circle {
+  --tile-variant: circle;
+}
 
-.pill { --tile-variant: pill; }
+.pill {
+  --tile-variant: pill;
+}
 
 /* content-specific icon styles are intentionally omitted here */
 

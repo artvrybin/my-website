@@ -1,0 +1,177 @@
+@use '../../styles/variables' as v;
+
+.title {
+  margin: 0 0 18px;
+  font-size: 1.9em;
+}
+
+.companyLine {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.companyName {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.role {
+  color: var(--accent);
+}
+
+/* Common spacing for main blocks */
+.block {
+  margin-bottom: 20px;
+}
+
+/* Для плитки с классом .role красим текст внутри, а не фон враппера */
+.role span {
+  color: var(--accent);
+}
+
+/* Skills/stack tiles */
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.tileImg {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.tileIcon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+
+/* legacy mask-based icon helpers (kept for reference; now using <img>) */
+.icon {
+  width: 18px;
+  height: 18px;
+  background: var(--fg);
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.react {
+  -webkit-mask: url('/src/assets/icons/icon-react.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-react.svg') center / contain no-repeat;
+}
+
+.ts {
+  -webkit-mask: url('/src/assets/icons/icon-ts.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-ts.svg') center / contain no-repeat;
+}
+
+.js {
+  -webkit-mask: url('/src/assets/icons/icon-js.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-js.svg') center / contain no-repeat;
+}
+
+.next {
+  -webkit-mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
+}
+
+.redux {
+  -webkit-mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
+}
+
+.rtkq {
+  -webkit-mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-redux.svg') center / contain no-repeat;
+}
+
+.scss {
+  -webkit-mask: url('/src/assets/images/icons/scss.svg') center / contain no-repeat;
+  mask: url('/src/assets/images/icons/scss.svg') center / contain no-repeat;
+}
+
+.html {
+  -webkit-mask: url('/src/assets/icons/icon-html.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-html.svg') center / contain no-repeat;
+}
+
+.css {
+  -webkit-mask: url('/src/assets/icons/icon-css.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-css.svg') center / contain no-repeat;
+}
+
+.figma {
+  -webkit-mask: url('/src/assets/images/icons/figma.svg') center / contain no-repeat;
+  mask: url('/src/assets/images/icons/figma.svg') center / contain no-repeat;
+}
+
+.radix {
+  -webkit-mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
+}
+
+.shadcn {
+  -webkit-mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-gear.svg') center / contain no-repeat;
+}
+
+.storybook {
+  -webkit-mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-idea.svg') center / contain no-repeat;
+}
+
+.pixso {
+  -webkit-mask: url('/src/assets/icons/icon-attachment.svg') center / contain no-repeat;
+  mask: url('/src/assets/icons/icon-attachment.svg') center / contain no-repeat;
+}
+
+/* Brand colors for masked icons (solid-color) */
+.brandNext {
+  background: #000000;
+}
+
+.brandRedux {
+  background: #764ABC;
+}
+
+.brandRTKQ {
+  background: #764ABC;
+}
+
+.brandRadix {
+  background: #000000;
+}
+
+.brandShadcn {
+  background: #000000;
+}
+
+.brandStorybook {
+  background: #FF4785;
+}
+
+.brandPixso {
+  background: #8A2BE2;
+}
+
+/* Theme-aware adjustments to keep icons visible on dark background */
+.themeAwareDarkInvert {
+  filter: none;
+}
+
+:root[data-theme='dark'] .themeAwareDarkInvert {
+  filter: brightness(0) invert(1) contrast(.95) saturate(.9);
+}
+
+

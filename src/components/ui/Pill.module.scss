@@ -1,4 +1,5 @@
 @use '../../styles/variables' as v;
+@use '../../styles/breakpoints' as bp;
 
 .root {
   display: flex;
@@ -6,12 +7,20 @@
   gap: 18px;
   background: var(--card);
   border-radius: 16px;
-  padding: 22px 24px;
+  /* Mobile padding for skills pills */
+  padding: 15px;
   box-shadow: var(--elevation-sm);
   transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
   position: relative;
   isolation: isolate;
 
+}
+
+@include bp.media(tablet) {
+  .root {
+    /* Tablet and up: revert to larger spacing */
+    padding: 22px 24px;
+  }
 }
 
 .dot {

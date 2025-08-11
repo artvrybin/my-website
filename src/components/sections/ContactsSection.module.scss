@@ -1,12 +1,38 @@
 @use '../../styles/breakpoints' as bp;
 
-.title { margin: 0 0 18px; font-size: 1.9em; }
+.compactSection {
+  min-height: auto;
+}
 
-.forceRow :global(.content) { flex-direction: row; gap: 16px; }
+@include bp.media(tablet) {
+  .compactSection {
+    min-height: 30rem;
+  }
+}
 
-.rightWrap { position: relative; min-height: 160px; }
-.rightWrap :global(a[class*="TileWrapper_root"]) { position: relative; }
-.rightWrap { display: flex; justify-content: flex-end; }
+.title {
+  margin: 0 0 18px;
+  font-size: 1.9em;
+}
+
+.forceRow :global(.content) {
+  flex-direction: row;
+  gap: 16px;
+}
+
+.rightWrap {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.rightWrap :global(a[class*="TileWrapper_root"]) {
+  position: relative;
+}
+
+.rightWrap {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .lead {
   margin: 0 0 8px;
@@ -23,13 +49,53 @@
   -webkit-text-fill-color: transparent;
 }
 
-.tilesBlock { position: relative; width: 100%; display: flex; justify-content: flex-end; }
-.listHidden { visibility: hidden; }
-.copyOverlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.tilesBlock {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 
-.list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; justify-content: flex-end; }
-.item { flex: 0 0 50%; display: flex; justify-content: center; }
-@include bp.media(tablet) { .item { flex: 0 0 calc(100% / 6); } }
+.listHidden {
+  visibility: hidden;
+}
+
+.copyOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile: элементы в одну строку с горизонтальным скроллом */
+.list {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.item {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Tablet+: раскладываем сеткой с переносами */
+@include bp.media(tablet) {
+  .list {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    justify-content: flex-end;
+  }
+  .item {
+    flex: 0 0 calc(100% / 6);
+  }
+}
 
 /* Explicit size and white fill for img-based icons */
 .list img {
@@ -52,7 +118,14 @@
   box-shadow: var(--elevation-sm);
 }
 
-.footer { position: absolute; right: 0; bottom: 0; color: var(--muted); font-size: 13px; text-align: right; }
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
 
 /* Mask-based icon so we can control color by theme */
 .icon {
@@ -67,6 +140,17 @@
 }
 
 /* per-kind masks */
-.iconEmail { -webkit-mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat; mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat; }
-.iconTelegram { -webkit-mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat; mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat; }
-.iconGithub { -webkit-mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat; mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat; }
+.iconEmail {
+  -webkit-mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat;
+  mask: url('/src/assets/icons/icon-email.svg') center / 70% no-repeat;
+}
+
+.iconTelegram {
+  -webkit-mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat;
+  mask: url('/src/assets/icons/icon-telegram.svg') center / 70% no-repeat;
+}
+
+.iconGithub {
+  -webkit-mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat;
+  mask: url('/src/assets/icons/icon-github.svg') center / 70% no-repeat;
+}

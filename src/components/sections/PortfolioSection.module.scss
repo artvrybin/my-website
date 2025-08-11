@@ -1,0 +1,142 @@
+@use '../../styles/breakpoints' as bp;
+
+.root {
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+}
+
+.title {
+  margin: 0 0 18px;
+  font-size: 1.9em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+@include bp.media(tablet) {
+  .list {
+    gap: 26px;
+  }
+}
+
+@include bp.media(desktop) {
+  .list {
+    gap: 30px;
+  }
+}
+
+/* Portfolio card specific */
+.imageWrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card);
+  border: none;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body {
+  display: grid;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.date {
+  font-size: 0.85em;
+  color: var(--muted);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.description {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+.tileImg {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Lightbox */
+.lb {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .7);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.lbInner {
+  position: relative;
+  max-width: min(96vw, 1100px);
+  max-height: 90vh;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.lbImg {
+  display: block;
+  max-width: 100%;
+  max-height: 75vh;
+  height: auto;
+}
+
+.lbCaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .95rem;
+  text-align: center;
+}
+
+.lbClose {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  font-size: 24px;
+  cursor: pointer;
+}
