@@ -38,7 +38,7 @@ export default function Page() {
             <MobileMenu open={menuOpen} onNavigate={() => setMenuOpen(false)} onClose={() => setMenuOpen(false)} />
 
             <main id="main">
-                <AboutSection/>
+                <AboutSection theme={theme}/>
 
                 <SkillsSection/>
 

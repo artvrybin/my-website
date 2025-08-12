@@ -18,10 +18,18 @@
   justify-content: center;
 }
 
+/* Карточка для hero-изображения */
+.imageCard {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: var(--elevation-sm);
+  padding: 8px;
+}
+
 @include bp.media(tablet) {
   .root { flex-direction: row; align-items: center; }
-  .left { flex: 0 0 60%; }
-  .right { flex: 0 0 40%; }
+  .left { flex: 1 1 0; max-width: 55%; }
+  .right { flex: 1 1 0; max-width: 45%; }
 }
 
 .title { @include v.sectionTitle; display: flex; flex-direction: column; gap: 4px; }
@@ -35,11 +43,14 @@
 .image {
   width: 100%;
   /* Масштабируем относительно вьюпорта в заданных пределах */
-  max-width: clamp(300px, 40vw, 400px);
+  max-width: clamp(340px, 50vw, 560px);
   height: auto;
-  border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 12px 40px var(--shadowBackdrop);
+  display: block;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
 }
 
 .meta { margin-top: 10px; }

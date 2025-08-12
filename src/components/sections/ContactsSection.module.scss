@@ -41,10 +41,7 @@
 }
 
 .leadGradient {
-  background: linear-gradient(90deg, var(--accent), color-mix(in oklab, var(--accent) 35%, white));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent);
 }
 
 .tilesBlock {

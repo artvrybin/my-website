@@ -2,7 +2,12 @@ import styles from './PortfolioSection.module.scss'
 import { useEffect, useState } from 'react'
 import { SplitCard, SplitCardAspect } from '../ui/SplitCard'
 import { TileWrapper } from '../ui/TileWrapper'
-import heroImage from '../../assets/images/hero-image.png'
+import projectImage from '../../assets/images/project-image-1.png'
+import iconNextjs from '../../assets/icons/icon-nextjs.svg'
+import iconReactHookForm from '../../assets/icons/icon-react-hook-form.svg'
+import iconStripe from '../../assets/icons/icon-stripe.svg'
+import iconSass from '../../assets/images/icons/sass.svg'
+import iconScss from '../../assets/images/icons/scss.svg'
 import iconVite from '../../assets/images/icons/vite.svg'
 import iconTS from '../../assets/images/icons/typescript.svg'
 import iconReact from '../../assets/images/icons/react.svg'
@@ -57,11 +62,86 @@ export function PortfolioSection() {
                   type="button"
                   className={styles.imageWrapper}
                   aria-label="Открыть изображение в полный размер"
-                  onClick={() => openLightbox(heroImage, 'proj')}
+                  onClick={() => openLightbox(projectImage, 'proj')}
                 >
                   <img
                     className={styles.image}
-                    src={heroImage}
+                    src={projectImage}
+                    alt="Скриншот проекта"
+                    width={390}
+                    height={320}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </button>
+              </SplitCardAspect>
+            }
+          >
+            <div className={styles.body}>
+              <time className={styles.date} dateTime="2022-08">
+                August 2022
+              </time>
+              <h3 className={styles.cardTitle}>
+                <a
+                  className={styles.link}
+                  href="https://pictorial.work/"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Открыть сайт в новой вкладке"
+                >
+                  Pictorial Project
+                </a>
+              </h3>
+              <div className={styles.description}>
+                Портал для обмена контентом — веб-приложение для общения, публикации
+                материалов и взаимодействия между пользователями в рамках
+                онлайн-сообщества.
+              </div>
+              <div className={styles.tiles}>
+                {[
+                  { src: iconNextjs, alt: 'Next.js', label: 'Next.js' },
+                  { src: iconSass, alt: 'Sass', label: 'Sass' },
+                  { src: iconScss, alt: 'SCSS', label: 'SCSS' },
+                  { src: iconRTK, alt: 'Redux Toolkit', label: 'Redux Toolkit' },
+                  { src: iconRedux, alt: 'React Redux', label: 'React Redux' },
+                  { src: iconReactHookForm, alt: 'React Hook Form', label: 'React Hook Form' },
+                  { src: undefined, alt: 'I18n', label: 'I18n' },
+                  { src: iconStripe, alt: 'Stripe', label: 'Stripe' },
+                  { src: undefined, alt: 'Socket.io', label: 'Socket.io' },
+                ].map(item => (
+                  <TileWrapper
+                    key={item.label}
+                    variant="pill"
+                    pillHeight={40}
+                    aria-label={item.alt}
+                    title={item.alt}
+                  >
+                    {item.src && (
+                      <img className={styles.tileImg} src={item.src} alt={item.alt} />
+                    )}
+                    {item.label}
+                  </TileWrapper>
+                ))}
+              </div>
+            </div>
+          </SplitCard>
+          <SplitCard
+            as="article"
+            frameLeft
+            leftWidth={390}
+            aspect="390 / 320"
+            data-js-gallery-container
+            left={
+              <SplitCardAspect>
+                <button
+                  type="button"
+                  className={styles.imageWrapper}
+                  aria-label="Открыть изображение в полный размер"
+                  onClick={() => openLightbox(projectImage, 'proj')}
+                >
+                  <img
+                    className={styles.image}
+                    src={projectImage}
                     alt="Скриншот проекта"
                     width={390}
                     height={320}
@@ -111,7 +191,9 @@ export function PortfolioSection() {
                     aria-label={item.alt}
                     title={item.alt}
                   >
-                    <img className={styles.tileImg} src={item.src} alt={item.alt} />
+                    {item.src && (
+                      <img className={styles.tileImg} src={item.src} alt={item.alt} />
+                    )}
                     {item.label}
                   </TileWrapper>
                 ))}
@@ -127,7 +209,11 @@ export function PortfolioSection() {
             onClick={closeLightbox}
           >
             <div className={styles.lbInner} onClick={e => e.stopPropagation()}>
-              <img className={styles.lbImg} src={lightboxSrc ?? ''} alt={lightboxCaption ?? 'Изображение'} />
+              <img
+                className={styles.lbImg}
+                src={lightboxSrc ?? ''}
+                alt={lightboxCaption ?? 'Изображение'}
+              />
               {lightboxCaption && (
                 <div className={styles.lbCaption}>{lightboxCaption}</div>
               )}

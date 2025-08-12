@@ -13,15 +13,28 @@
   gap: 22px;
 }
 
+/* Отступ между отдельными списками-картами */
+.list + .list {
+  margin-top: 22px;
+}
+
 @include bp.media(tablet) {
   .list {
     gap: 26px;
+  }
+
+  .list + .list {
+    margin-top: 26px;
   }
 }
 
 @include bp.media(desktop) {
   .list {
     gap: 30px;
+  }
+
+  .list + .list {
+    margin-top: 30px;
   }
 }
 
