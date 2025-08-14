@@ -1,9 +1,18 @@
 import imageLight from '@assets/images/i__light.png'
 import imageDark from '@assets/images/i__dark.png'
+import { useEffect } from 'react'
 import type { Theme } from '@/lib/hooks/useTheme'
 import styles from './AboutSection.module.scss'
 
 export function AboutSection({ theme }: { theme: Theme }) {
+  // Предзагружаем изображение тёмной темы заранее, чтобы при переключении не было задержки загрузки
+  useEffect(() => {
+    try {
+      const darkImg = new Image()
+      darkImg.decoding = 'async'
+      darkImg.src = imageDark
+    } catch {}
+  }, [])
   return (
     <section id="about" className="section">
       <div className={`container ${styles.root}`}>
