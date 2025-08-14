@@ -1,6 +1,10 @@
 @use '../../styles/breakpoints' as bp;
 @use '../../styles/variables' as v;
 
+.root {
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+}
+
 .compactSection {
   min-height: auto;
 }

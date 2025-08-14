@@ -24,7 +24,7 @@ export function ContactsSection() {
     return () => clearTimeout(t)
   }, [emailCopied])
   return (
-    <section id="contacts" className={`section ${styles.compactSection}`}>
+    <section id="contacts" className={`section ${styles.root} ${styles.compactSection}`}>
       <div className="container">
         <h2 className={styles.title}>
           Мои <span className="accentWord">Контакты</span>

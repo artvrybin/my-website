@@ -17,7 +17,7 @@ import iconFigma from '@/assets/images/icons/figma.svg'
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="section">
+    <section id="experience" className={`section ${styles.root}`}>
       <div className="container">
         <h2 className={styles.title}>
           Мой <span className="accentWord">Опыт</span>

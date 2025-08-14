@@ -1,5 +1,9 @@
 @use '../../styles/variables' as v;
 
+.root {
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
+}
+
 .title { @include v.sectionTitle; }
 
 .companyLine {

@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   min-height: 60vh;
+  font-size: clamp(1rem, 1.6vw, 1.22rem);
 }
 
 .left { text-align: left; }
