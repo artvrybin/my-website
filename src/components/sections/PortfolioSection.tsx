@@ -2,7 +2,7 @@ import styles from './PortfolioSection.module.scss'
 import { useEffect, useState } from 'react'
 import { SplitCard, SplitCardAspect } from '../ui/SplitCard'
 import { TileWrapper } from '../ui/TileWrapper'
-import projectImage from '../../assets/images/project-image-1.png'
+import projectImage from '@assets/images/project-image-0.png'
 import iconNextjs from '../../assets/icons/icon-nextjs.svg'
 import iconReactHookForm from '../../assets/icons/icon-react-hook-form.svg'
 import iconStripe from '../../assets/icons/icon-stripe.svg'
@@ -19,6 +19,8 @@ import iconFormik from '../../assets/images/icons/formik.svg'
 import iconYup from '../../assets/images/icons/yup.svg'
 import iconPostCSS from '../../assets/images/icons/postcss.svg'
 import iconVitest from '../../assets/images/icons/vitest.svg'
+import iconI18n from '@assets/icons/icon-i18n.svg'
+import iconSocketio from '@assets/icons/icon-Socket-io.svg'
 
 export function PortfolioSection() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
@@ -104,10 +106,14 @@ export function PortfolioSection() {
                   { src: iconScss, alt: 'SCSS', label: 'SCSS' },
                   { src: iconRTK, alt: 'Redux Toolkit', label: 'Redux Toolkit' },
                   { src: iconRedux, alt: 'React Redux', label: 'React Redux' },
-                  { src: iconReactHookForm, alt: 'React Hook Form', label: 'React Hook Form' },
-                  { src: undefined, alt: 'I18n', label: 'I18n' },
+                  {
+                    src: iconReactHookForm,
+                    alt: 'React Hook Form',
+                    label: 'React Hook Form',
+                  },
+                  { src: iconI18n, alt: 'I18n', label: 'I18n' },
                   { src: iconStripe, alt: 'Stripe', label: 'Stripe' },
-                  { src: undefined, alt: 'Socket.io', label: 'Socket.io' },
+                  { src: iconSocketio, alt: 'Socket.io', label: 'Socket.io' },
                 ].map(item => (
                   <TileWrapper
                     key={item.label}

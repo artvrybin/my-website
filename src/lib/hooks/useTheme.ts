@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 
 /**
  * Значение темы приложения. Соответствует атрибуту `data-theme` на <html>.
@@ -22,24 +22,25 @@ export type Theme = 'dark' | 'light'
  * - `[1] toggleTheme()` — переключает между 'dark' и 'light'
  * - `[2] ensureHtmlClass()` — идемпотентно добавляет `.site` на <html>
  */
-export function useTheme(initial: Theme = 'dark') {
+export function useTheme(initial: Theme = 'light') {
   const [theme, setTheme] = useState<Theme>(initial)
 
-  // Читаем сохранённую/предпочитаемую тему при маунте
+  // Читаем сохранённую тему при маунте (если нет — оставляем 'light')
   useEffect(() => {
     if (typeof window === 'undefined') return
     try {
       const saved = (localStorage.getItem('theme') as Theme | null) ?? null
-      const preferred: Theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      setTheme(saved ?? preferred)
+      setTheme(saved ?? 'light')
     } catch {
       // ignore
     }
   }, [])
 
-  // Синхронизируем с DOM и localStorage
-  useEffect(() => {
+  // Синхронно до первой отрисовки: добавляем класс .site и актуализируем data-theme
+  useLayoutEffect(() => {
     if (typeof document === 'undefined') return
+    // гарантируем класс .site на <html>
+    document.documentElement.classList.add('site')
     document.documentElement.setAttribute('data-theme', theme)
     try { localStorage.setItem('theme', theme) } catch {}
   }, [theme])

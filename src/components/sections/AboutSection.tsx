@@ -1,5 +1,5 @@
-import imageLight from '@assets/images/i__light-21.png'
-import imageDark from '@assets/images/i__dark-21.png'
+import imageLight from '@assets/images/i__light.png'
+import imageDark from '@assets/images/i__dark.png'
 import type { Theme } from '@/lib/hooks/useTheme'
 import styles from './AboutSection.module.scss'
 

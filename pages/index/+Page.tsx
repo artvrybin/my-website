@@ -14,7 +14,7 @@ import { useMobileMenuLock } from '@/lib/hooks/useMobileMenuLock'
 
 export default function Page() {
     const [menuOpen, setMenuOpen] = useState(false)
-    const [theme, toggleTheme, ensureHtmlClass] = useTheme('dark')
+    const [theme, toggleTheme, ensureHtmlClass] = useTheme('light')
     const scrolled = useScrollFlag(8)
     useHeaderHeight()
     useMobileMenuLock(menuOpen)
