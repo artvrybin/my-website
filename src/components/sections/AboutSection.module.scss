@@ -24,7 +24,14 @@
   background: var(--card);
   border-radius: 20px;
   box-shadow: var(--elevation-sm);
-  padding: 8px;
+  /* Карточка-кадр без внутренних отступов */
+  padding: 0;
+  overflow: hidden;
+  /* Квадратный кадр, как у фото-портрета */
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: clamp(340px, 50vw, 560px);
+  margin: 0 auto;
 }
 
 @include bp.media(tablet) {
@@ -43,9 +50,7 @@
 
 .image {
   width: 100%;
-  /* Масштабируем относительно вьюпорта в заданных пределах */
-  max-width: clamp(340px, 50vw, 560px);
-  height: auto;
+  height: 100%;
   object-fit: cover;
   display: block;
   border: 0;
