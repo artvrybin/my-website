@@ -81,7 +81,7 @@ export function PortfolioSection() {
           >
             <div className={styles.body}>
               <time className={styles.date} dateTime="2022-08">
-                August 2022
+                Сентябрь 2024
               </time>
               <h3 className={styles.cardTitle}>
                 <a
@@ -160,7 +160,7 @@ export function PortfolioSection() {
           >
             <div className={styles.body}>
               <time className={styles.date} dateTime="2022-08">
-                August 2022
+                Date
               </time>
               <h3 className={styles.cardTitle}>
                 <a
