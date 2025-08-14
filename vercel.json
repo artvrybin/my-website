@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "framework": null,
+  "installCommand": "pnpm i --frozen-lockfile",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/client"
+}
+
+
