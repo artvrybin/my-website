@@ -15,7 +15,7 @@ import iconYup from '../assets/images/icons/yup.svg'
 import iconPostCSS from '../assets/images/icons/postcss.svg'
 import iconVitest from '../assets/images/icons/vitest.svg'
 import iconI18n from '../assets/icons/icon-i18n.svg'
-import iconSocketio from '../assets/icons/icon-Socket-io.svg'
+import iconSocketio from '../assets/icons/icon-socketio.svg'
 
 /**
  * Мапа иконок технологий для компонентов проектов.

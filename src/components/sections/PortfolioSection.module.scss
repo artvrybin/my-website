@@ -169,3 +169,30 @@
 :root[data-theme='dark'] .themeAwareDarkInvert {
   filter: brightness(0) invert(1) contrast(.95) saturate(.9);
 }
+
+/* Цветовые стили для иконок */
+.iconDark {
+  filter: brightness(0) saturate(100%);
+}
+
+.iconBlue {
+  filter: brightness(0) saturate(100%) invert(21%) sepia(100%) saturate(1352%) hue-rotate(201deg) brightness(87%) contrast(87%);
+}
+
+.iconPurple {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(82%) saturate(2427%) hue-rotate(233deg) brightness(102%) contrast(105%);
+}
+
+/* В тёмной теме тёмные иконки становятся светлыми */
+:root[data-theme='dark'] .iconDark {
+  filter: brightness(0) invert(1);
+}
+
+/* В тёмной теме цветные иконки остаются цветными */
+:root[data-theme='dark'] .iconBlue {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(100%) saturate(1219%) hue-rotate(201deg) brightness(95%) contrast(87%);
+}
+
+:root[data-theme='dark'] .iconPurple {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(82%) saturate(2026%) hue-rotate(233deg) brightness(102%) contrast(105%);
+}

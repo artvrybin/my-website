@@ -125,8 +125,8 @@
   mask: url('../../assets/icons/icon-attachment.svg') center / contain no-repeat;
 }
 
-/* Брендовые цвета для mask-иконок (заливка) */
-@each $className, $color in v.$brand-class-colors {
+/* Цветовые стили для mask-иконок */
+@each $className, $color in v.$tech-class-colors {
   .#{$className} { background: $color; }
 }
 

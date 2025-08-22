@@ -5,26 +5,24 @@ $radius-sm: 8px;
 $radius-md: 30px;
 $radius-lg: 40px;
 
-/* Брендовые цвета (для масок-иконок и бейджей) */
-$brand-colors: (
-  next: #000000,
-  redux: #764ABC,
-  rtkq: #764ABC,
-  radix: #000000,
-  shadcn: #000000,
-  storybook: #FF4785,
-  pixso: #8A2BE2
+/* Цветовая палитра для технологий */
+$tech-colors: (
+  dark: #000000,
+  purple: #764ABC,
+  red: #FF4785,
+  violet: #8A2BE2,
+  blue: #635BFF,
+  lightblue: #4A90E2
 );
 
-/* Классы -> брендовые цвета (с учётом нужного регистра в именах классов) */
-$brand-class-colors: (
-  'brandNext': #000000,
-  'brandRedux': #764ABC,
-  'brandRTKQ': #764ABC,
-  'brandRadix': #000000,
-  'brandShadcn': #000000,
-  'brandStorybook': #FF4785,
-  'brandPixso': #8A2BE2
+/* Классы для цветовых стилей */
+$tech-class-colors: (
+  'techDark': #000000,
+  'techPurple': #764ABC,
+  'techRed': #FF4785,
+  'techViolet': #8A2BE2,
+  'techBlue': #635BFF,
+  'techLightblue': #4A90E2
 );
 
 /* Общие миксины */

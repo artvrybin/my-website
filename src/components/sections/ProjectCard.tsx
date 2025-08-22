@@ -127,11 +127,24 @@ export const ProjectCard = memo<ProjectCardProps>(
               const techIcon = getTechIcon(techName)
               if (!techIcon) return null
               
-              // Список технологий с чёрными иконками, которые нуждаются в инверсии в тёмной теме
-              const darkIconTechs = ['Next.js', 'I18n', 'Stripe', 'Socket.io']
-              const needsInvert = darkIconTechs.includes(techName)
-              const imgClassName = needsInvert 
-                ? `${styles.tileImg} ${styles.themeAwareDarkInvert}` 
+              // Применяем цветовые стили для иконок
+              const getIconColorClass = (tech: string) => {
+                switch (tech) {
+                  case 'Next.js':
+                  case 'Socket.io':
+                    return styles.iconDark
+                  case 'I18n':
+                    return styles.iconBlue
+                  case 'Stripe':
+                    return styles.iconPurple
+                  default:
+                    return ''
+                }
+              }
+              
+              const colorClass = getIconColorClass(techName)
+              const imgClassName = colorClass 
+                ? `${styles.tileImg} ${colorClass}` 
                 : styles.tileImg
               
               return (
