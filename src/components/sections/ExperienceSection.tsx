@@ -24,7 +24,7 @@ export function ExperienceSection() {
         </h2>
         <SectionCard>
           <TileWrapper variant={'pill'} className={`${styles.role} ${styles.block}`}>
-            Сентябрь 2023 — настоящее время
+            Сентябрь 2023 — ...
           </TileWrapper>
 
           <div className={styles.companyLine}>
@@ -40,7 +40,11 @@ export function ExperienceSection() {
 
           <div className={styles.tiles}>
             <TileWrapper variant={'pill'}>
-              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconNext} alt="Next.js" />
+              <img
+                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
+                src={iconNext}
+                alt="Next.js"
+              />
               Next.js
             </TileWrapper>
             <TileWrapper variant={'pill'}>
@@ -64,11 +68,19 @@ export function ExperienceSection() {
               RTK Query
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconGear} alt="Radix UI" />
+              <img
+                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
+                src={iconGear}
+                alt="Radix UI"
+              />
               Radix UI
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconGear} alt="shadcn/ui" />
+              <img
+                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
+                src={iconGear}
+                alt="shadcn/ui"
+              />
               shadcn/ui
             </TileWrapper>
             <TileWrapper variant={'pill'}>
@@ -76,7 +88,11 @@ export function ExperienceSection() {
               SCSS
             </TileWrapper>
             <TileWrapper variant={'pill'}>
-              <img className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`} src={iconStorybook} alt="Storybook" />
+              <img
+                className={`${styles.tileImg} ${styles.themeAwareDarkInvert}`}
+                src={iconStorybook}
+                alt="Storybook"
+              />
               Storybook
             </TileWrapper>
             <TileWrapper variant={'pill'}>
