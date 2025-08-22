@@ -125,7 +125,16 @@ export const ProjectCard = memo<ProjectCardProps>(
           <div className={styles.tiles}>
             {techStack.map(techName => {
               const techIcon = getTechIcon(techName)
-              return techIcon ? (
+              if (!techIcon) return null
+              
+              // Список технологий с чёрными иконками, которые нуждаются в инверсии в тёмной теме
+              const darkIconTechs = ['Next.js', 'I18n', 'Stripe', 'Socket.io']
+              const needsInvert = darkIconTechs.includes(techName)
+              const imgClassName = needsInvert 
+                ? `${styles.tileImg} ${styles.themeAwareDarkInvert}` 
+                : styles.tileImg
+              
+              return (
                 <TileWrapper
                   key={techIcon.label}
                   variant="pill"
@@ -133,10 +142,10 @@ export const ProjectCard = memo<ProjectCardProps>(
                   aria-label={techIcon.alt}
                   title={techIcon.alt}
                 >
-                  <img className={styles.tileImg} src={techIcon.src} alt={techIcon.alt} />
+                  <img className={imgClassName} src={techIcon.src} alt={techIcon.alt} />
                   {techIcon.label}
                 </TileWrapper>
-              ) : null
+              )
             })}
           </div>
         </div>

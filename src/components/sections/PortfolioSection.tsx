@@ -3,7 +3,8 @@ import styles from './PortfolioSection.module.scss'
 import { useLightbox } from '@lib/hooks/useLightbox.ts'
 import { Lightbox } from '../ui/Lightbox'
 import { ProjectCard } from './ProjectCard'
-import projectImage from '@assets/images/project-image-0.png'
+import pictorialImage from '@assets/images/pictorial-project-image.png'
+import mfImage from '@assets/images/mf-project-image.png'
 
 export const PortfolioSection = memo(() => {
   const { lightbox, openLightbox, closeLightbox } = useLightbox()
@@ -11,17 +12,37 @@ export const PortfolioSection = memo(() => {
   // Временные данные для отображения пока не обновим структуру данных
   const projectsToDisplay = [
     {
+      title: 'Musicfun',
+      date: 'Июнь 2025',
+      description:
+        'Участие в командной разработке Open Source-проекта в сфере онлайн-образования..',
+      image: mfImage,
+      imageAlt: 'Скриншот проекта Musicfun',
+      link: 'https://app.musicfun.dev/',
+      githubLink: 'https://github.com/it-incubator/musicfun-react-all-stacks',
+      techStack: [
+        'React',
+        'TypeScript',
+        'Redux Toolkit',
+        'React Redux',
+        'Vite',
+        'React Router',
+        'React Hook Form',
+        'Socket.io',
+        'SCSS',
+      ],
+    },
+    {
       title: 'Pictorial',
       date: 'Сентябрь 2024',
       description:
-        'Портал для обмена контентом — веб-приложение для общения, публикации материалов и взаимодействия между пользователями в рамках онлайн-сообщества.',
-      image: projectImage,
+        'Портал для обмена контентом — веб-приложение для общения, публикации материалов и взаимодействия между пользователями в рамках сообщества.',
+      image: pictorialImage,
       imageAlt: 'Скриншот проекта Pictorial',
       link: 'https://pictorial.work/',
-      githubLink: 'https://github.com/username/repo',
+      githubLink: 'https://github.com/artvrybin/pictorial-project',
       techStack: [
         'Next.js',
-        'Sass',
         'SCSS',
         'Redux Toolkit',
         'React Redux',
@@ -29,29 +50,6 @@ export const PortfolioSection = memo(() => {
         'I18n',
         'Stripe',
         'Socket.io',
-      ],
-    },
-    {
-      title: 'Musicfun',
-      date: 'Март 2024',
-      description:
-        'Музыкальная платформа для прослушивания треков с современным интерфейсом и продвинутым функционалом управления плейлистами.',
-      image: projectImage,
-      imageAlt: 'Скриншот проекта Musicfun',
-      link: 'https://musicfun-demo.vercel.app/',
-      githubLink: 'https://github.com/username/musicfun',
-      techStack: [
-        'Vite',
-        'TypeScript',
-        'React',
-        'React Router',
-        'Redux',
-        'Redux Toolkit',
-        'Redux Persist',
-        'Formik',
-        'Yup',
-        'PostCSS',
-        'Vitest',
       ],
     },
   ]

@@ -85,6 +85,16 @@
   text-decoration: underline;
 }
 
+.gitLink {
+  margin-left: 12px;
+  color: var(--muted);
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: var(--fg);
+  }
+}
+
 .description {
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -149,4 +159,13 @@
   color: var(--fg);
   font-size: 24px;
   cursor: pointer;
+}
+
+/* Настройка видимости иконок на тёмной теме */
+.themeAwareDarkInvert {
+  filter: none;
+}
+
+:root[data-theme='dark'] .themeAwareDarkInvert {
+  filter: brightness(0) invert(1) contrast(.95) saturate(.9);
 }
