@@ -5,6 +5,8 @@ import { Lightbox } from '../ui/Lightbox'
 import { ProjectCard } from './ProjectCard'
 import pictorialImage from '@assets/images/pictorial-project-image.png'
 import mfImage from '@assets/images/mf-project-image.png'
+import uiImage from '@assets/images/ui-kit-project-image.png'
+import admImage from '@assets/images/pictorialSA-project-image.png'
 
 export const PortfolioSection = memo(() => {
   const { lightbox, openLightbox, closeLightbox } = useLightbox()
@@ -24,7 +26,6 @@ export const PortfolioSection = memo(() => {
         'React',
         'TypeScript',
         'Redux Toolkit',
-        'React Redux',
         'Vite',
         'React Router',
         'React Hook Form',
@@ -43,13 +44,54 @@ export const PortfolioSection = memo(() => {
       githubLink: 'https://github.com/artvrybin/pictorial-project',
       techStack: [
         'Next.js',
-        'SCSS',
+        'TypeScript',
         'Redux Toolkit',
-        'React Redux',
         'React Hook Form',
         'I18n',
         'Stripe',
         'Socket.io',
+        'SCSS',
+      ],
+    },
+    {
+      title: 'Pictorial SuperAdmin',
+      date: 'Июнь 2024',
+      description:
+        'Админка — полнофункциональная система администрирования с управлением пользователями, модерацией контента и аналитикой платежей.',
+      image: admImage,
+      imageAlt: 'Скриншот админ-панели Pictorial SuperAdmin',
+      link: 'pictorial-superadmin.vercel.app',
+      githubLink: 'https://github.com/artvrybin/pictorial-superadmin',
+      techStack: [
+        'Next.js',
+        'TypeScript',
+        'Apollo Client',
+        'GraphQL',
+        'Redux Toolkit',
+        'TailwindCSS',
+        'Next-intl',
+      ],
+    },
+    {
+      title: 'UI Components Library',
+      date: 'Январь 2024',
+      description:
+        'UI - kit переиспользуемых React компонентов — NPM-пакет с документацией в Storybook и поддержкой accessibility.',
+      image: uiImage,
+      imageAlt: 'Скриншот библиотеки UI компонентов',
+      link: 'components-lib-two.vercel.app',
+      githubLink: 'https://github.com/artvrybin/components-lib',
+      techStack: [
+        'React',
+        'TypeScript',
+        'Vite',
+        'Storybook',
+        'Radix UI',
+        'TailwindCSS',
+        'SCSS',
+        'Vitest',
+        'React Testing Library',
+        'Rollup',
       ],
     },
   ]

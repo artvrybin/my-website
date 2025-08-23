@@ -130,13 +130,47 @@ export const ProjectCard = memo<ProjectCardProps>(
               // Применяем цветовые стили для иконок
               const getIconColorClass = (tech: string) => {
                 switch (tech) {
+                  // Монохромные иконки (должны инвертироваться в темной теме)
                   case 'Next.js':
                   case 'Socket.io':
+                  case 'Vercel':
+                  case 'Prisma':
+                  case 'GitHub Actions':
                     return styles.iconDark
+                  
+                  // Синие иконки
                   case 'I18n':
+                  case 'Next-intl':
+                  case 'Docker':
+                  case 'PostgreSQL':
                     return styles.iconBlue
+                  
+                  // Фиолетовые иконки
                   case 'Stripe':
+                  case 'ESLint':
+                  case 'Apollo Client':
                     return styles.iconPurple
+                  
+                  // Зеленые иконки
+                  case 'Node.js':
+                    return styles.iconGreen
+                  
+                  // Розовые иконки  
+                  case 'GraphQL':
+                    return styles.iconPink
+                  
+                  // Красные иконки
+                  case 'Jest':
+                    return styles.iconRed
+                  
+                  // Желтые иконки
+                  case 'Prettier':
+                    return styles.iconYellow
+                  
+                  // Бирюзовые иконки
+                  case 'TailwindCSS':
+                    return styles.iconTeal
+                  
                   default:
                     return ''
                 }

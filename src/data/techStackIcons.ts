@@ -17,6 +17,23 @@ import iconVitest from '../assets/images/icons/vitest.svg'
 import iconI18n from '../assets/icons/icon-i18n.svg'
 import iconSocketio from '../assets/icons/icon-socketio.svg'
 
+// Новые реальные иконки
+import iconJest from '../assets/icons/icon-jest.svg'
+import iconDocker from '../assets/icons/icon-docker.svg'
+import iconNodejs from '../assets/icons/icon-nodejs.svg'
+import iconPostgreSQL from '../assets/icons/icon-postgresql.svg'
+import iconPrisma from '../assets/icons/icon-prisma.svg'
+import iconESLint from '../assets/icons/icon-eslint.svg'
+import iconPrettier from '../assets/icons/icon-prettier.svg'
+import iconApollo from '../assets/icons/icon-apollo.svg'
+import iconGraphQL from '../assets/icons/icon-graphql.svg'
+import iconTailwind from '../assets/icons/icon-tailwind.svg'
+import iconGitHubActions from '../assets/icons/icon-github-actions.svg'
+import iconVercel from '../assets/icons/icon-vercel.svg'
+import iconReactQuery from '../assets/icons/icon-react-query.svg'
+import iconStorybook from '../assets/icons/icon-storybook.svg'
+import iconTestingLibrary from '../assets/icons/icon-testing-library.svg'
+
 /**
  * Мапа иконок технологий для компонентов проектов.
  * Позволяет легко получить иконку по названию технологии.
@@ -44,9 +61,46 @@ export const TECH_STACK_ICONS = {
   'RTK Query': { src: iconRTK, alt: 'RTK Query' },
   'Radix UI': { src: iconReact, alt: 'Radix UI' }, // используем React иконку для Radix
   'shadcn/ui': { src: iconReact, alt: 'shadcn/ui' }, // используем React иконку для shadcn
-  'Storybook': { src: iconReact, alt: 'Storybook' }, // используем React иконку для Storybook
+  'Storybook': { src: iconStorybook, alt: 'Storybook' },
   'WebSocket': { src: iconSocketio, alt: 'WebSocket' }, // используем Socket.io иконку для WebSocket
   'REST': { src: iconReact, alt: 'REST' }, // используем React иконку для REST
+  
+  // Testing
+  'Jest': { src: iconJest, alt: 'Jest' },
+  'React Testing Library': { src: iconTestingLibrary, alt: 'React Testing Library' },
+  'Chromatic': { src: iconStorybook, alt: 'Chromatic' }, // используем Storybook иконку для Chromatic
+  
+  // Code Quality  
+  'ESLint': { src: iconESLint, alt: 'ESLint' },
+  'Prettier': { src: iconPrettier, alt: 'Prettier' },
+  
+  // Backend & Database
+  'Node.js': { src: iconNodejs, alt: 'Node.js' },
+  'PostgreSQL': { src: iconPostgreSQL, alt: 'PostgreSQL' },
+  'Prisma': { src: iconPrisma, alt: 'Prisma' },
+  
+  // State Management & Data Fetching
+  'React Query': { src: iconReactQuery, alt: 'React Query' },
+  'TanStack Query': { src: iconReactQuery, alt: 'TanStack Query' },
+  
+  // DevOps & Deploy
+  'Docker': { src: iconDocker, alt: 'Docker' },
+  'GitHub Actions': { src: iconGitHubActions, alt: 'GitHub Actions' },
+  'Vercel': { src: iconVercel, alt: 'Vercel' },
+  
+  // GraphQL
+  'Apollo Client': { src: iconApollo, alt: 'Apollo Client' },
+  'GraphQL': { src: iconGraphQL, alt: 'GraphQL' },
+  
+  // CSS Frameworks
+  'TailwindCSS': { src: iconTailwind, alt: 'TailwindCSS' },
+  
+  // Internationalization
+  'Next-intl': { src: iconI18n, alt: 'Next-intl' },
+  
+  // Build Tools
+  'Rollup': { src: iconVite, alt: 'Rollup' },
+  'NPM Package': { src: iconReact, alt: 'NPM Package' },
 } as const
 
 export type TechStackKey = keyof typeof TECH_STACK_ICONS

@@ -183,6 +183,26 @@
   filter: brightness(0) saturate(100%) invert(24%) sepia(82%) saturate(2427%) hue-rotate(233deg) brightness(102%) contrast(105%);
 }
 
+.iconGreen {
+  filter: brightness(0) saturate(100%) invert(34%) sepia(98%) saturate(1000%) hue-rotate(120deg) brightness(90%) contrast(90%);
+}
+
+.iconPink {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(89%) saturate(2000%) hue-rotate(315deg) brightness(95%) contrast(95%);
+}
+
+.iconRed {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(100%) saturate(3000%) hue-rotate(340deg) brightness(95%) contrast(95%);
+}
+
+.iconYellow {
+  filter: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(2000%) hue-rotate(25deg) brightness(100%) contrast(90%);
+}
+
+.iconTeal {
+  filter: brightness(0) saturate(100%) invert(59%) sepia(100%) saturate(1500%) hue-rotate(170deg) brightness(95%) contrast(90%);
+}
+
 /* В тёмной теме тёмные иконки становятся светлыми */
 :root[data-theme='dark'] .iconDark {
   filter: brightness(0) invert(1);
@@ -195,4 +215,24 @@
 
 :root[data-theme='dark'] .iconPurple {
   filter: brightness(0) saturate(100%) invert(36%) sepia(82%) saturate(2026%) hue-rotate(233deg) brightness(102%) contrast(105%);
+}
+
+:root[data-theme='dark'] .iconGreen {
+  filter: brightness(0) saturate(100%) invert(54%) sepia(98%) saturate(800%) hue-rotate(120deg) brightness(105%) contrast(90%);
+}
+
+:root[data-theme='dark'] .iconPink {
+  filter: brightness(0) saturate(100%) invert(38%) sepia(89%) saturate(1500%) hue-rotate(315deg) brightness(110%) contrast(95%);
+}
+
+:root[data-theme='dark'] .iconRed {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(100%) saturate(2000%) hue-rotate(340deg) brightness(110%) contrast(95%);
+}
+
+:root[data-theme='dark'] .iconYellow {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(100%) saturate(1500%) hue-rotate(25deg) brightness(105%) contrast(90%);
+}
+
+:root[data-theme='dark'] .iconTeal {
+  filter: brightness(0) saturate(100%) invert(69%) sepia(100%) saturate(1200%) hue-rotate(170deg) brightness(105%) contrast(90%);
 }
