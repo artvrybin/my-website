@@ -4,7 +4,7 @@ export default function Head() {
   const description =
     'Frontend-разработчик. Специализируюсь на React, TypeScript, Next.js. Создаю современные веб-приложения с отличным UX/UI.'
   const siteName = 'Frontend Developer Portfolio'
-  const siteUrl = 'https://my-cv-woad-one.vercel.app' // Замените на актуальный URL
+  const siteUrl = 'https://rybin-website.vercel.app' // Актуальный URL
   // Принудительно используем абсолютные URL для всех мета-тегов
   const pageUrl = siteUrl // Полный URL страницы для og:url и canonical
   const imageUrl = `${siteUrl}/preview.png` // Абсолютный URL для изображения

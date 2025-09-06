@@ -60,7 +60,7 @@ export const PortfolioSection = memo(() => {
         'Админка — полнофункциональная система администрирования с управлением пользователями, модерацией контента и аналитикой платежей.',
       image: admImage,
       imageAlt: 'Скриншот админ-панели Pictorial SuperAdmin',
-      link: 'pictorial-superadmin.vercel.app',
+      link: 'https://pictorial-superadmin.vercel.app',
       githubLink: 'https://github.com/artvrybin/pictorial-superadmin',
       techStack: [
         'Next.js',
@@ -79,7 +79,7 @@ export const PortfolioSection = memo(() => {
         'UI - kit переиспользуемых React компонентов — NPM-пакет с документацией в Storybook и поддержкой accessibility.',
       image: uiImage,
       imageAlt: 'Скриншот библиотеки UI компонентов',
-      link: 'components-lib-two.vercel.app',
+      link: 'https://components-lib-two.vercel.app',
       githubLink: 'https://github.com/artvrybin/components-lib',
       techStack: [
         'React',
